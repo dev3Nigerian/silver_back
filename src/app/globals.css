@@ -34,3 +34,10 @@ body {
     /* Display on screens smaller than 640px */
   }
 }
+
+@layer utilities {
+  .icon-fixed-size {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

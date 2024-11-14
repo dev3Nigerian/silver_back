@@ -26,7 +26,7 @@ export default function HotPage() {
         const data = await response.json();
 
         // Filter for hot games
-        const hotGames = data.data.filter((game: Game) => game.status === 'new');
+        const hotGames = data.data.filter((game: Game) => game.status === 'hot');
         setGames(hotGames);
 
         // Set pagination data from API response
@@ -52,37 +52,37 @@ export default function HotPage() {
         <div className="p-4">
         <h1 className="text-xl font-bold mb-4">Hot Games</h1>
 
-  {loading ? (
-  <p>Loading...</p>
-) : (
-  <div className="grid grid-cols-2 gap-4 p-4"> {/* Changed grid layout */}
-    {games.length > 0 ? (
-      games.map((game) => (
-        <div key={game.id} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
-          {/* Game Image */}
-          <img 
-            src={game.image_url}
-            alt={game.name}
-            className="w-[160px] h-[160px] object-cover rounded-md mb-4"
-          />
+        {loading ? (
+        <p>Loading...</p>
+        ) : (
+        <div className="grid grid-cols-2 gap-4 p-4"> {/* Changed grid layout */}
+            {games.length > 0 ? (
+            games.map((game) => (
+                <div key={game.id} className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+                {/* Game Image */}
+                <img 
+                    src={game.image_url}
+                    alt={game.name}
+                    className="w-[160px] h-[160px] object-cover rounded-md mb-4"
+                />
 
-          {/* Game Name */}
-          <h2 className="text-lg font-semibold text-center mb-2">{game.name}</h2>
+                {/* Game Name */}
+                <h2 className="text-lg font-semibold text-center mb-2">{game.name}</h2>
 
-          {/* Play Button */}
-          <a
-            href={game.link}
-            className="inline-block text-center w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-          >
-            Play
-          </a>
+                {/* Play Button */}
+                <a
+                    href={game.link}
+                    className="inline-block text-center w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                >
+                    Play
+                </a>
+                </div>
+            ))
+            ) : (
+            <p>No hot games available.</p>
+            )}
         </div>
-      ))
-    ) : (
-      <p>No hot games available.</p>
-    )}
-  </div>
-)}
+        )}
 
 
 

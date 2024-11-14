@@ -1,29 +1,9 @@
-
-// src/app/friends/page.tsx
-// export default function FriendsPage() {
-//   const userId = "user123";
-//   const startParam = new URLSearchParams(window?.location?.search).get('startapp') || undefined;
-  
-//   return (
-//     <div className="p-4">
-//       <h1 className="text-xl font-bold mb-4">Friends</h1>
-      
-//       <ReferralSystem
-//         userId={userId}
-//         startParam={startParam}
-//         initData="your_init_data_here"
-//       />
-//     </div>
-//   );
-// }
-"use client"
-
 import { useEffect } from 'react';
 import { useReferralSystem } from '../../hooks/useReferralSystem';
 import { initUtils } from '@telegram-apps/sdk'
-import { ErrorMessage } from '../components/errorMessage';
-import { LoadingSpinner } from '../components/loadingSpinner';
-import { ReferralList } from '../components/referralList';
+import { ErrorMessage } from './errorMessage';
+import { LoadingSpinner } from './loadingSpinner';
+import { ReferralList } from './referralList';
 
 interface ReferralSystemProps {
   initData: string;
@@ -31,7 +11,7 @@ interface ReferralSystemProps {
   startParam?: string;
 }
 
-export const FriendsPage: React.FC<ReferralSystemProps> = ({
+export const ReferralSystem: React.FC<ReferralSystemProps> = ({
   userId,
   startParam,
 }) => {
@@ -122,5 +102,3 @@ export const FriendsPage: React.FC<ReferralSystemProps> = ({
     </div>
   );
 };
-
-export default FriendsPage
